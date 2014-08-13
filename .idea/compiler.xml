@@ -25,6 +25,9 @@
         <module name="psnyc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="psnyc" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 
