@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="psnyc:war exploded">
+    <output-path>$PROJECT_DIR$/target/psnyc</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="psnyc/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="psnyc" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
