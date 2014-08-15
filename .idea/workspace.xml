@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9320c8e-3460-4bae-b993-3bcfd4c11845" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/arrows.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/bullets.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/psnyc_1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/images/psnyc_2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/psnyc/resource/AboutUsResource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/psnyc/resource/FieldsResource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/psnyc/views/MainView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/psnyc/data/NavigationData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/psnyc/views/aboutus.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/psnyc/views/brooklyn.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/css/slider/dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/css/slider/default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/js/jquery.nivo.slider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/js/jquery.nivo.slider.pack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/psnyc/views/manhattan.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/css/slider/nivo-slider.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/psnyc/views/HomeView.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/org/psnyc/views/body.ftl" afterPath="$PROJECT_DIR$/src/main/resources/org/psnyc/views/home.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/psnyc/resource/HomeResource.java" afterPath="$PROJECT_DIR$/src/main/java/org/psnyc/resource/HomeResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/psnyc/PSNYCApplication.java" afterPath="$PROJECT_DIR$/src/main/java/org/psnyc/PSNYCApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/org/psnyc/views/main.ftl" afterPath="$PROJECT_DIR$/src/main/resources/org/psnyc/views/main.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/css/menu.css" afterPath="$PROJECT_DIR$/src/main/resources/assets/css/menu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/org/psnyc/views/menu.ftl" afterPath="$PROJECT_DIR$/src/main/resources/org/psnyc/views/menu.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/css/slider/dark.css" afterPath="$PROJECT_DIR$/src/main/resources/assets/css/slider/dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/css/slider/default.css" afterPath="$PROJECT_DIR$/src/main/resources/assets/css/slider/default.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/js/jquery.nivo.slider.js" afterPath="$PROJECT_DIR$/src/main/resources/assets/js/jquery.nivo.slider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/css/slider/nivo-slider.css" afterPath="$PROJECT_DIR$/src/main/resources/assets/css/slider/nivo-slider.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="psnyc.iws" />
@@ -53,84 +33,7 @@
     <favorites_list name="psnyc" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="PSNYCApplication.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/psnyc/PSNYCApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1040609" vertical-offset="60" max-vertical-offset="660">
-              <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.ftl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/org/psnyc/views/home.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="300">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.ftl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/org/psnyc/views/menu.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="435">
-              <caret line="16" column="107" selection-start-line="16" selection-start-column="107" selection-end-line="16" selection-end-column="107" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AboutUsResource.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/psnyc/resource/AboutUsResource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="495">
-              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#483#484#0" expanded="true" />
-                <element signature="e#543#544#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dark.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/css/slider/dark.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1605">
-              <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/css/slider/default.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1066" max-vertical-offset="1470">
-              <caret line="92" column="1" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.ftl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/org/psnyc/views/main.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8333333" vertical-offset="73" max-vertical-offset="495">
-              <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -314,54 +217,6 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="psnyc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="psnyc" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="psnyc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="psnyc" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -396,7 +251,37 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resource" />
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="psnyc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="psnyc" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="psnyc" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="configuration" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -694,7 +579,11 @@
       <created>1408061542664</created>
       <updated>1408061542664</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added content to links and made it dynamic">
+      <created>1408075112583</created>
+      <updated>1408075112583</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -725,7 +614,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32854864" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -741,7 +630,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33383685" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.49920255" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.49920255" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38437003" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -808,7 +697,8 @@
     <MESSAGE value="intial version" />
     <MESSAGE value="added map and changed to new font awesome" />
     <MESSAGE value="made it work finally" />
-    <option name="LAST_COMMIT_MESSAGE" value="made it work finally" />
+    <MESSAGE value="added content to links and made it dynamic" />
+    <option name="LAST_COMMIT_MESSAGE" value="added content to links and made it dynamic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1112,7 +1002,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/assets/css/slider/default.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1066" max-vertical-offset="1470">
+        <state vertical-scroll-proportion="0.85" vertical-offset="870" max-vertical-offset="1470">
           <caret line="92" column="1" selection-start-line="92" selection-start-column="1" selection-end-line="92" selection-end-column="1" />
           <folding />
         </state>
@@ -1128,7 +1018,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/assets/css/slider/dark.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1605">
+        <state vertical-scroll-proportion="0.54833335" vertical-offset="646" max-vertical-offset="1605">
           <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
           <folding />
         </state>
@@ -1136,7 +1026,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/org/psnyc/views/main.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8333333" vertical-offset="73" max-vertical-offset="495">
+        <state vertical-scroll-proportion="0.28645834" vertical-offset="0" max-vertical-offset="576">
           <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
           <folding />
         </state>
@@ -1144,7 +1034,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/org/psnyc/views/menu.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="435">
+        <state vertical-scroll-proportion="0.42628774" vertical-offset="0" max-vertical-offset="563">
           <caret line="16" column="107" selection-start-line="16" selection-start-column="107" selection-end-line="16" selection-end-column="107" />
           <folding />
         </state>
@@ -1152,7 +1042,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/psnyc/resource/AboutUsResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="495">
+        <state vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="600">
           <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1164,7 +1054,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/org/psnyc/views/home.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="300">
+        <state vertical-scroll-proportion="0.36458334" vertical-offset="0" max-vertical-offset="576">
           <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
           <folding />
         </state>
@@ -1172,8 +1062,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/psnyc/PSNYCApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1040609" vertical-offset="60" max-vertical-offset="660">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.6" vertical-offset="60" max-vertical-offset="660">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
