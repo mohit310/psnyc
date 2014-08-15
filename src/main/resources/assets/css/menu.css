@@ -69,6 +69,12 @@ ol, ul {
 	font-size: 0;
 	padding-top: 15px;
 }
+
+.slider-wrapper {
+	width: 80%;
+	margin: 100px auto;
+}
+
 #navigation {
 	position: absolute;
 	right: 20px;

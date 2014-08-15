@@ -3,6 +3,8 @@ package org.psnyc;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.views.ViewBundle;
 import org.psnyc.configuration.PSNYCConfiguration;
+import org.psnyc.resource.AboutUsResource;
+import org.psnyc.resource.FieldsResource;
 import org.psnyc.resource.HomeResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -27,8 +29,9 @@ public class PSNYCApplication extends Application<PSNYCConfiguration> {
 
     @Override
     public void run(PSNYCConfiguration psnycConfiguration, Environment environment) throws Exception {
-        final HomeResource homeResource = new HomeResource();
-        environment.jersey().register(homeResource);
+        environment.jersey().register(new HomeResource());
+        environment.jersey().register(new FieldsResource());
+        environment.jersey().register(new AboutUsResource());
     }
 
     public static void main(String[] args) throws Exception{
