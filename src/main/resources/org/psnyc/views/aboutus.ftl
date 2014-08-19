@@ -1,5 +1,8 @@
-<div id="main-body">
-        <pre>
+<!-- Banner -->
+<div id="banner-wrapper">
+    <div id="banner" class="box container">
+        <div class="row">
+            <pre>
             PICKUP SOCCER NYC was began in Fall 2006 by a group of disheartened individuals, tired of playing in games
             with leagues and teams that took the sport WAY too seriously... so seriously in fact that it took all the
             fun out of the game for us and playing for sport, NOT just to win! We wanted to play for fun when we wanted.
@@ -25,5 +28,7 @@
             founders
             Susanna Thornton
             Eric Breitung
-        </pre>
+            </pre>
+        </div>
+    </div>
 </div>

@@ -18,10 +18,9 @@ public class PSNYCApplication extends Application<PSNYCConfiguration> {
     @Override
     public void initialize(Bootstrap<PSNYCConfiguration> psnycConfigurationBootstrap) {
 
-        //psnycConfigurationBootstrap.addBundle(new AssetsBundle("/assets/", "/"));
         psnycConfigurationBootstrap.addBundle(new AssetsBundle("/assets/css", "/css", null, "css"));
         psnycConfigurationBootstrap.addBundle(new AssetsBundle("/assets/js", "/js", null, "js"));
-        psnycConfigurationBootstrap.addBundle(new AssetsBundle("/assets/font", "/font", null, "font"));
+        psnycConfigurationBootstrap.addBundle(new AssetsBundle("/assets/fonts", "/fonts", null, "fonts"));
         psnycConfigurationBootstrap.addBundle(new AssetsBundle("/assets/images", "/images", null, "images"));
 
         psnycConfigurationBootstrap.addBundle(new ViewBundle());

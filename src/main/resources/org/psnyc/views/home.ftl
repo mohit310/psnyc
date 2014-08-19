@@ -1,15 +1,17 @@
-<div id="main-body">
-    <div class="slider-wrapper theme-dark">
-        <div class="ribbon"></div>
-        <div id="slider" class="nivoSlider">
-            <img src="images/psnyc_1.jpg" data-thumb="images/psnyc_1.jpg" alt="" title="Pickup Soccer NYC"/>
-            <img src="images/psnyc_2.jpg" data-thumb="images/psnyc_2.jpg" alt="" title="Pickup Soccer NYC"/>
+<!-- Banner -->
+<div id="banner-wrapper">
+    <div id="banner" class="box container">
+        <div class="row">
+            <div class="7u">
+                <h2>Hi. This is Verti.</h2>
+                <p>It's a free responsive site template by HTML5 UP</p>
+            </div>
+            <div class="5u">
+                <ul>
+                    <li><a href="#" class="button big icon fa-arrow-circle-right">Ok let's go</a></li>
+                    <li><a href="#" class="button alt big icon fa-question-circle">More info</a></li>
+                </ul>
+            </div>
         </div>
-        <script type="text/javascript">
-        $(window).load(function() {
-            $('#slider').nivoSlider();
-        });
-
-        </script>
     </div>
 </div>
