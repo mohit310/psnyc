@@ -22,7 +22,7 @@
                 <li <#if navigationData.menu = "Register">class="current"</#if>><a href="/register">Register</a></li>
                 <li <#if navigationData.menu = "Forum">class="current"</#if>><a href="/forum">Forum</a></li>
                 <li <#if navigationData.menu = "AboutUs">class="current"</#if>><a href="/aboutus">About Us</a></li>
-                <li <#if navigationData.menu = "ContactUs">class="current"</#if>><a href="#">Contact Us</a></li>
+                <li <#if navigationData.menu = "ContactUs">class="current"</#if>><a href="/contactus">Contact Us</a></li>
                 <li <#if navigationData.menu = "Login">class="current"</#if>><a href="#">Login</a></li>
 
             </ul>

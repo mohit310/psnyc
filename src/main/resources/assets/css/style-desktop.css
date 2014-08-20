@@ -60,7 +60,7 @@
 	
 		.box
 		{
-			padding: 2em;
+			padding: 1em;
 		}
 			
 			.box.feature
@@ -123,7 +123,7 @@
 
 	#header-wrapper
 	{
-		padding: 4.5em 0 1em 0;
+		padding: 2.5em 0 0.5em 0;
 	}
 	
 	#features-wrapper
@@ -311,7 +311,7 @@
 
 	#banner
 	{
-		padding: 4.5em;
+		padding: 1.5em;
 	}
 
 		#banner h2

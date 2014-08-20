@@ -23,7 +23,7 @@ public class FieldsResource {
     @GET
     public View displayFields(@QueryParam("city") String city) {
         if (StringUtils.isEmpty(city))
-            return new MainView("Fields","manhattan.ftl");
+            return new MainView("Fields","fields.ftl");
         else
             return new MainView("Fields", city + ".ftl");
     }
