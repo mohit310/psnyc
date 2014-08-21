@@ -1,6 +1,3 @@
-<#-- @ftlvariable menu="" type="org.psnyc.views.MainView" -->
-<#-- @ftlvariable template="" type="org.psnyc.views.MainView" -->
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -26,10 +23,21 @@
     </noscript>
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="css/ie/v8.css"/><![endif]-->
+
 </head>
 <body class="homepage">
-<#include "menu.ftl">
-<#include "${navigationData.template}">
-<#include "footer.ftl">
+<div id="banner-wrapper">
+    <div id="banner" class="box container">
+        <span>Please select the region where you play!!</span>
+        <img id="imgid" src="images/world_map.png" width="900px" height="550px" alt="World" usemap="#worldmap">
+        <map name="worldmap">
+            <area shape="poly" coords="158,246,137,226,125,194, 126,172, 222,167, 287,167, 251, 202, 230, 240,158,246 " href="/us" alt="usa">
+            <area shape="rect" coords="425,88,548,185" onClick="/eu" alt="europe">
+        </map>
+    </div>
+</div>
+<script type="text/javascript">
+</script>
+<#include "us/footer.ftl">
 </body>
 </html>

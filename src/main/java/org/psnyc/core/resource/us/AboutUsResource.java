@@ -1,13 +1,12 @@
-package org.psnyc.resource;
+package org.psnyc.core.resource.us;
 
 import io.dropwizard.views.View;
-import org.apache.commons.lang.StringUtils;
-import org.psnyc.views.MainView;
+import org.psnyc.core.resource.Subsite;
+import org.psnyc.views.us.MainView;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -22,6 +21,6 @@ public class AboutUsResource {
 
     @GET
     public View displayAboutUs() {
-        return new MainView("AboutUs","aboutus.ftl");
+        return new MainView(Subsite.US, "AboutUs","aboutus.ftl");
     }
 }

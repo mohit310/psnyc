@@ -1,8 +1,9 @@
-package org.psnyc.resource;
+package org.psnyc.core.resource.us;
 
 import io.dropwizard.views.View;
 import org.apache.commons.lang.StringUtils;
-import org.psnyc.views.MainView;
+import org.psnyc.core.resource.Subsite;
+import org.psnyc.views.us.MainView;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -23,9 +24,9 @@ public class FieldsResource {
     @GET
     public View displayFields(@QueryParam("city") String city) {
         if (StringUtils.isEmpty(city))
-            return new MainView("Fields","fields.ftl");
+            return new MainView(Subsite.US, "Fields","fields.ftl");
         else
-            return new MainView("Fields", city + ".ftl");
+            return new MainView(Subsite.US, "Fields", city + ".ftl");
     }
 
 }

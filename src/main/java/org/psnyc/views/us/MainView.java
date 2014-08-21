@@ -1,4 +1,4 @@
-package org.psnyc.views;
+package org.psnyc.views.us;
 
 import io.dropwizard.views.View;
 import org.psnyc.data.NavigationData;
@@ -9,13 +9,19 @@ import org.psnyc.data.NavigationData;
 public class MainView extends View{
 
     private final NavigationData navigationData;
+    private final String region;
 
-    public MainView(String menu, String bodyTemplate) {
+    public MainView(String region, String menu, String template) {
         super("main.ftl");
-        this.navigationData= new NavigationData(menu, bodyTemplate);
+        this.region=region;
+        this.navigationData= new NavigationData(menu, template);
     }
 
     public NavigationData getNavigationData() {
         return navigationData;
+    }
+
+    public String getRegion() {
+        return region;
     }
 }

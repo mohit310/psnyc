@@ -1,8 +1,9 @@
-package org.psnyc.resource;
+package org.psnyc.core.resource.us;
 
 import io.dropwizard.views.View;
 import org.psnyc.data.Contact;
-import org.psnyc.views.MainView;
+import org.psnyc.core.resource.Subsite;
+import org.psnyc.views.us.MainView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +25,7 @@ public class ContactUsResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public View displayContactUs() {
-        return new MainView("ContactUs","contactus.ftl");
+        return new MainView(Subsite.US,"ContactUs","contactus.ftl");
     }
 
     @POST

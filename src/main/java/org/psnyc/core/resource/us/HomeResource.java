@@ -1,7 +1,8 @@
-package org.psnyc.resource;
+package org.psnyc.core.resource.us;
 
 import io.dropwizard.views.View;
-import org.psnyc.views.MainView;
+import org.psnyc.core.resource.Subsite;
+import org.psnyc.views.us.MainView;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Created by mk on 8/13/14.
  */
-@Path("/")
+@Path("/us")
 @Produces(MediaType.TEXT_HTML)
 public class HomeResource {
 
@@ -20,7 +21,7 @@ public class HomeResource {
 
     @GET
     public View displayHome() {
-        return new MainView("Home","home.ftl");
+        return new MainView(Subsite.US,"Home","home.ftl");
     }
 
 }
