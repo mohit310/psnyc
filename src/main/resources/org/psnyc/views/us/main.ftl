@@ -17,6 +17,7 @@
     <script src="js/jssor.core.js"></script>
     <script src="js/jssor.utils.js"></script>
     <script src="js/jssor.slider.js"></script>
+    <script src="js/jquery.validate.js"></script>
     <noscript>
         <link rel="stylesheet" href="css/skel.css"/>
         <link rel="stylesheet" href="css/style.css"/>

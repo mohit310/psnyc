@@ -71,9 +71,21 @@
     <orderEntry type="library" name="Maven: net.sourceforge.argparse4j:argparse4j:0.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.toolchain.setuid:jetty-setuid-java:1.0.2" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-assets:0.7.1" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views-freemarker:0.7.1" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views:0.7.1" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views-freemarker:0.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.20" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-jdbi:0.7.1" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-db:0.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jdbc:7.0.50" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:7.0.50" level="project" />
+    <orderEntry type="library" name="Maven: org.jdbi:jdbi:2.55" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:annotations:2.0.3" level="project" />
+    <orderEntry type="library" name="Maven: com.codahale.metrics:metrics-jdbi:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-migrations:0.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.liquibase:liquibase-core:3.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.13" level="project" />
+    <orderEntry type="library" name="Maven: com.mattbertolini:liquibase-slf4j:1.2.1" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.32" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
   </component>
 </module>

@@ -9,3 +9,44 @@ logging:
 
     # Overrides the level of com.example.dw.Thing and sets it to DEBUG.
     "org.psnyc": DEBUG
+
+mysqlDatabase:
+  # the name of your JDBC driver
+  driverClass: com.mysql.jdbc.Driver
+
+  # the username
+  user: mk
+
+  # the password
+  password: mohitk78
+
+  # the JDBC URL
+  url: jdbc:mysql://localhost/psnyc
+
+  # any properties specific to your JDBC driver:
+  #properties:
+    #charSet: UTF-8
+
+  # the maximum amount of time to wait on an empty pool before throwing an exception
+  maxWaitForConnection: 1s
+
+  # the SQL query to run when validating a connection's liveness
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+
+  # the minimum number of connections to keep open
+  initialSize: 1
+
+  # the minimum number of connections to keep open
+  minSize: 1
+
+  # the maximum number of connections to keep open
+  maxSize: 4
+
+  # whether or not idle connections should be validated
+  checkConnectionWhileIdle: false
+
+  # the amount of time to sleep between runs of the idle connection validation, abandoned cleaner and idle pool resizing
+  evictionInterval: 10s
+
+  # the minimum amount of time an connection must sit idle in the pool before it is eligible for eviction
+  minIdleTime: 1 minute

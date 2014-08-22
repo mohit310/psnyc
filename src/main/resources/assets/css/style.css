@@ -173,6 +173,11 @@
 				font-size: 0.8em;
 				color: #444;
 			}
+
+			form label.error {
+            	color: red;
+            	font-style: italic;
+            }
 		
 			form input[type="text"],
 			form input[type="email"],
