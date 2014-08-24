@@ -1,0 +1,3 @@
+curl -H "Content-Type: application/json" -X POST -d '{"fname":"Mo", "lname" : "Ke", "useremail" : "mk@mk.com", "query" : "my name is mohit" }' http://localhost:8080/contactus/send
+
+curl -H "Content-Type: application/json" -X POST -d '{"fname":"M", "lname" : "K", "useremail" : "mk", "query" : "my" }' http://localhost:8080/contactus/send

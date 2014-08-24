@@ -43,66 +43,114 @@
             </nav>
         </header>
     </div>
-    <div id="login_div" style="display:none;" class="login_div">
-
-        <span class="button b-close"><span>X</span></span>
-
-        <div>
+    <div id="popup" style="display: none;">
+        <div style="width: 315px;">
+            <span class="b-close"><span><a href="javascript:window.close();">X</a></span></span>
+        </div>
+        <div style="width: 315px;">
             <form id="loginform" autocomplete="on" action="/login">
                 <label for="email">Email</label>
                 <input id="email" type="email" name="email" autocomplete="off" required>
                 <label for="password">Password</label>
                 <input id="password" type="password" name="password" autocomplete="off" required>
                 <br>
-                <input type="Submit" value="Login"><input type="reset" value="Clear">
+                <input type="Submit" value="Login"><span>&nbsp;&nbsp;</span>
+                <input id="signup" type="button" name="signup" value="Sign Up">
             </form>
         </div>
-        <div id="message" style="position: relative; top: 0px; left: 0px; width: 600px;"></div>
         <script>
 
-                $.validator.setDefaults({
-                    submitHandler: function() {
-                        var form = $("#login");
-                        var url = form.attr("action");
-                        var data = '{';
-                        data = data + '"fname":' + '"' + $("#fname").val() + '",';
-                        data = data + '"lname":' + '"' + $("#lname").val() + '",';
-                        data = data + '"email":' + '"' + $("#email").val() + '",';
-                        data = data + '"query":' + '"' + $("#query").val() + '"';
-                        data = data + "}";
-                        $.ajax({
-                            url: url,
-                            data: data,
-                            type: "POST",
-                            contentType: "application/json; charset=utf-8",
-                        })
-                        .done(function( data ) {
-                            $('#message').text(data);
-                            $('#contactus').trigger("reset");
-                        })
-                        .fail(function(jqXHR, textStatus){
-                            if (jqXHR.status === 0)
-                            {
-                                alert('Not connect.n Verify Network.');
+               $().ready(function() {
+
+                      $("#loginform").validate({
+                        rules: {
+                            email: {
+                                required: true,
+                                minlength: 2
+                            },
+                            password: {
+                                required: true,
+                                minlength: 8,
+                                maxlength: 50
                             }
-                            else if (jqXHR.status == 404)
-                            {
-                                alert('Requested page not found. [404]');
+                        },
+                        messages: {
+                            email: {
+                                required: "Please enter a valid email",
+                                minLength: "Your email must be at least 2 characters long"
+                            },
+                            password: {
+                                required: "Password is required",
+                                minLength: "Password should be atleast 8 characters long",
+                                maxLength: "Password cannot be greater than 50s characters long",
                             }
-                            else if (jqXHR.status == 500)
-                            {
-                                alert('Internal Server Error [500].');
-                            }
-                            else
-                            {
-                                alert('Uncaught Error.n' + jqXHR.responseText);
-                            }
-                        });
-                     }
-                });
+                        },
+                        submitHandler: function() {
+                            var form = $("#loginform");
+                            var url = form.attr("action");
+                            var data = '{';
+                            data = data + '"email":' + '"' + $("#email").val() + '",';
+                            data = data + '"password":' + '"' + $("#password").val() + '"';
+                            data = data + "}";
+                            $.ajax({
+                                url: url,
+                                data: data,
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                            })
+                            .done(function(  ) {
+                                if(data == "success")
+                                    document.location.href="/";
+                            })
+                            .fail(function(jqXHR, textStatus){
+                                if (jqXHR.status === 0)
+                                {
+                                    alert('Not connect.n Verify Network.');
+                                }
+                                else if (jqXHR.status == 404)
+                                {
+                                    alert('Requested page not found. [404]');
+                                }
+                                else if (jqXHR.status == 500)
+                                {
+                                    alert('Internal Server Error [500].');
+                                }
+                                else
+                                {
+                                    alert('Uncaught Error.n' + jqXHR.responseText);
+                                }
+                            });
+                        }
+                    });
+                 });
+        </script>
+    </div>
+
+    <div id="signupdiv" style="display: none;">
+        <div style="width: 315px;">
+            <span class="b-close"><span><a href="javascript:window.close();">X</a></span></span>
+        </div>
+        <div style="width: 315px;">
+            <form id="signupform" autocomplete="on" action="/signup">
+                <label for="useremail">Email</label>
+                <input id="useremail" type="email" name="useremail" autocomplete="off" required>
+                <label for="fname">First Name</label>
+                <input id="fname" type="text" name="fname" maxlength="100" required>
+                <label for="lname">Last Name</label>
+                <input id="lname" type="text" name="lname" maxlength="100" required>
+                <label for="password">Password</label>
+                <input id="password" type="password" name="password" autocomplete="off" required>
+                <label for="confirmpassword">Retype Password</label>
+                <input id="confirmpassword" type="password" name="confirmpassword" autocomplete="off" required>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <script type="text/javascript">
 
                $().ready(function() {
-                      $("#contactus").validate({
+
+                      $("#signupform").validate({
                         rules: {
                             fname: {
                                 required: true,
@@ -112,14 +160,22 @@
                                 required: true,
                                 minlength: 2
                             },
-                            email: {
+                            useremail: {
                                 required: true,
-                                minlength: 2
+                                minlength: 2,
+                                email: true,
+                                remote: "/signup/checkemail"
                             },
-                            query: {
+                            password: {
                                 required: true,
-                                minlength: 10,
-                                maxlength: 500
+                                minlength: 8,
+                                maxlength: 50
+                            },
+                            confirmpassword: {
+                                required: true,
+                                minlength: 8,
+                                maxlength: 50,
+                                equalTo: "#password"
                             }
                         },
                         messages: {
@@ -131,38 +187,85 @@
                                 required: "Please enter your lastname",
                                 minLength: "Your lastname must be at least 2 characters long"
                             },
-                            email: {
+                            useremail: {
                                 required: "Please enter a valid email",
-                                minLength: "Your email must be at least 2 characters long"
+                                minLength: "Your email must be at least 2 characters long",
+                                email: true,
+                                remote: jQuery.validator.format("{0} is already in use")
                             },
-                            query: {
-                                required: "Please enter your query",
-                                minLength: "Your query must be at least 10 characters long",
-                                maxLength: "Your query cannot be greater than 500 characters long",
+                            password: {
+                                required: "Password is required",
+                                minLength: "Password should be atleast 8 characters long",
+                                maxLength: "Password cannot be greater than 50s characters long",
                             }
+                        },
+                        submitHandler: function() {
+                            var form = $("#signupform");
+                            var url = "/signup";
+                            var data = '{';
+                            data = data + '"fname":' + '"' + $("#fname").val() + '",';
+                            data = data + '"lname":' + '"' + $("#lname").val() + '",';
+                            data = data + '"email":' + '"' + $("#email").val() + '",';
+                            data = data + '"password":' + '"' + $("#password").val() + '"';
+                            data = data + "}";
+                            $.ajax({
+                                url: url,
+                                data: data,
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                            })
+                            .done(function( data ) {
+                                alert(data);
+                                //Set Header here or maybe on Server.
+                                document.location.href="/";
+                            })
+                            .fail(function(jqXHR, textStatus){
+                                if (jqXHR.status === 0)
+                                {
+                                    alert('Not connect.n Verify Network.');
+                                }
+                                else if (jqXHR.status == 404)
+                                {
+                                    alert('Requested page not found. [404]');
+                                }
+                                else if (jqXHR.status == 500)
+                                {
+                                    alert('Internal Server Error [500].');
+                                }
+                                else
+                                {
+                                    alert('Uncaught Error.n' + jqXHR.responseText);
+                                }
+                            });
                         }
                     });
                  });
-
-
-
         </script>
     </div>
     <script>
     $(document).ready(function() {
         $("#login").click(function() {
 
-            $('#login_div').bPopup({
+            $('#popup').bPopup({
                 easing: 'easeOutBack', //uses jQuery easing plugin
                 speed: 350,
                 transition: 'slideDown',
-                opacity: 0.7,
+                opacity: 0.8,
+                modalColor: "#ffffff"
+
+            });
+        });
+
+        $("#signup").click(function() {
+            $('#popup').bPopup().close();
+            $('#signupdiv').bPopup({
+                easing: 'easeOutBack', //uses jQuery easing plugin
+                speed: 350,
+                transition: 'slideDown',
+                opacity: 0.8,
                 modalColor: "#ffffff"
 
             });
         });
     });
-
-
-
-</script>
+    </script>

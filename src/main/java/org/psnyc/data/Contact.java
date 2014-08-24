@@ -1,7 +1,10 @@
 package org.psnyc.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Size;
 
 /**
  * Created by mohit on 8/19/14.
@@ -10,23 +13,29 @@ public class Contact {
 
     @JsonProperty("fname")
     @NotEmpty
+    @Size(min = 2, max = 50)
     private String firstName;
 
     @JsonProperty("lname")
     @NotEmpty
+    @Size(min = 2, max = 50)
     private String lastName;
 
-    @JsonProperty("email")
+    @JsonProperty("useremail")
     @NotEmpty
+    @Email
     private String emailId;
 
     @JsonProperty
     @NotEmpty
+    @Size(min=10, max=500)
     private String query;
 
     public Contact(){
 
     }
+
+
 
     public Contact(String firstName, String lastName, String emailId, String query) {
         this.firstName = firstName;

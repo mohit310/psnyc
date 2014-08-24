@@ -34,7 +34,7 @@
 		.button
 		{
 			font-size: 1.25em;
-			padding: 0.5em 1.0em;
+			padding: 0.5em 2.0em;
 		}
 
 			input[type="button"].big,
@@ -364,3 +364,48 @@
 		padding: 4em 0 0 0;
 		text-align: center;
 	}
+
+
+#signupdiv{
+    background-color: #fff;
+    border-style: solid;
+    border-size: 3px;
+    border-color: black;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 25px 5px #999;
+    color:#111;
+    display: none;
+    min-width: 325px;
+    padding: 25px;
+}
+
+#signupdiv {
+	min-height: 250px;
+}
+
+#popup{
+    background-color: #fff;
+    border-style: solid;
+    border-size: 3px;
+    border-color: black;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 25px 5px #999;
+    color:#111;
+    display: none;
+    min-width: 325px;
+    padding: 25px;
+}
+
+#popup {
+	min-height: 250px;
+}
+
+.b-close {
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: none;
+    font: bold 131% sans-serif;
+    padding: 0 6px 2px;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+}
