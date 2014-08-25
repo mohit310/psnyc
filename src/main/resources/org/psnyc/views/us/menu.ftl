@@ -181,32 +181,32 @@
                         messages: {
                             fname: {
                                 required: "Please enter your firstname",
-                                minLength: "Your firstname must be at least 2 characters long"
+                                minLength: "Your firstname must be at least {0} characters long"
                             },
                             fname: {
                                 required: "Please enter your lastname",
-                                minLength: "Your lastname must be at least 2 characters long"
+                                minLength: "Your lastname must be at least {0} characters long"
                             },
                             useremail: {
                                 required: "Please enter a valid email",
-                                minLength: "Your email must be at least 2 characters long",
-                                email: true,
+                                minLength: "Your email must be at least {0} characters long",
+                                email:  "Please enter valid email",
                                 remote: jQuery.validator.format("{0} is already in use")
                             },
                             password: {
                                 required: "Password is required",
-                                minLength: "Password should be atleast 8 characters long",
-                                maxLength: "Password cannot be greater than 50s characters long",
+                                minLength: "Password should be atleast {0} characters long",
+                                maxLength: "Password cannot be greater than {0} characters long",
                             }
                         },
                         submitHandler: function() {
                             var form = $("#signupform");
                             var url = "/signup";
                             var data = '{';
-                            data = data + '"fname":' + '"' + $("#fname").val() + '",';
-                            data = data + '"lname":' + '"' + $("#lname").val() + '",';
-                            data = data + '"email":' + '"' + $("#email").val() + '",';
-                            data = data + '"password":' + '"' + $("#password").val() + '"';
+                            data = data + '"fname":"' + $('#signupform').find('input[name="fname"]').val() + '",';
+                            data = data + '"lname":"' + $('#signupform').find('input[name="lname"]').val() + '",';
+                            data = data + '"useremail":"' + $('#signupform').find('input[name="useremail"]').val() + '",';
+                            data = data + '"password":"' + $("#password").val() + '"';
                             data = data + "}";
                             $.ajax({
                                 url: url,
@@ -215,7 +215,6 @@
                                 contentType: "application/json; charset=utf-8",
                             })
                             .done(function( data ) {
-                                alert(data);
                                 //Set Header here or maybe on Server.
                                 document.location.href="/";
                             })

@@ -21,15 +21,18 @@
                         rules: {
                             fname: {
                                 required: true,
-                                minlength: 2
+                                minlength: 2,
+                                maxlength: 50
                             },
                             lname: {
                                 required: true,
-                                minlength: 2
+                                minlength: 2,
+                                maxlength: 50
                             },
                             useremail: {
                                 required: true,
-                                minlength: 2
+                                minlength: 2,
+                                maxlength: 100
                             },
                             query: {
                                 required: true,
@@ -40,20 +43,23 @@
                         messages: {
                             fname: {
                                 required: "Please enter your firstname",
-                                minLength: "Your firstname must be at least 2 characters long"
+                                minLength: "Your firstname must be at least {0} characters long",
+                                maxLength: "Your firstname cannot be greater than {0} characters"
                             },
                             lname: {
                                 required: "Please enter your lastname",
-                                minLength: "Your lastname must be at least 2 characters long"
+                                minLength: "Your lastname must be at least {0} characters long",
+                                maxLength: "Your lastname cannot be greater than {0} characters"
                             },
                             useremail: {
                                 required: "Please enter a valid email",
-                                minLength: "Your email must be at least 2 characters long"
+                                minLength: "Your email must be at least {0} characters long",
+                                maxLength: "Your email cannot be greater than {0} characters"
                             },
                             query: {
                                 required: "Please enter your query",
-                                minLength: "Your query must be at least 10 characters long",
-                                maxLength: "Your query cannot be greater than 500 characters long",
+                                minLength: "Your query must be at least {0} characters long",
+                                maxLength: "Your query cannot be greater than {0} characters long",
                             }
                         },
                         submitHandler: function() {
@@ -84,7 +90,6 @@
                                         errorMessage =  errorMessage + "<li>" + value + "</li>";
                                     });
                                     errorMessage = errorMessage + "</ul>";
-                                    alert(errorMessage);
                                     $("#resultdata").html(errorMessage);
                                 }else if (jqXHR.status === 0)
                                 {
