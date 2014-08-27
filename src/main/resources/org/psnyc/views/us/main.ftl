@@ -17,7 +17,7 @@
     <script src="js/jssor.core.js"></script>
     <script src="js/jssor.utils.js"></script>
     <script src="js/jssor.slider.js"></script>
-    <script src="js/jquery.validate.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/jquery.bpopup.min.js"></script>
     <noscript>

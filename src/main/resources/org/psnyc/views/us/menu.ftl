@@ -48,7 +48,7 @@
             <span class="b-close"><span><a href="javascript:window.close();">X</a></span></span>
         </div>
         <div style="width: 315px;">
-            <form id="loginform" autocomplete="on" action="/login">
+            <form id="loginform" autocomplete="on" action="login">
                 <label for="email">Email</label>
                 <input id="email" type="email" name="email" autocomplete="off" required>
                 <label for="password">Password</label>
@@ -57,6 +57,7 @@
                 <input type="Submit" value="Login"><span>&nbsp;&nbsp;</span>
                 <input id="signup" type="button" name="signup" value="Sign Up">
             </form>
+            <span id="loginresult" style="position: relative; width: 300px;"></span>
         </div>
         <script>
 
@@ -77,20 +78,20 @@
                         messages: {
                             email: {
                                 required: "Please enter a valid email",
-                                minLength: "Your email must be at least 2 characters long"
+                                minLength: "Your email must be at least {0} characters long"
                             },
                             password: {
                                 required: "Password is required",
-                                minLength: "Password should be atleast 8 characters long",
-                                maxLength: "Password cannot be greater than 50s characters long",
+                                minLength: "Password should be atleast {0} characters long",
+                                maxLength: "Password cannot be greater than {0} characters long",
                             }
                         },
                         submitHandler: function() {
                             var form = $("#loginform");
                             var url = form.attr("action");
                             var data = '{';
-                            data = data + '"email":' + '"' + $("#email").val() + '",';
-                            data = data + '"password":' + '"' + $("#password").val() + '"';
+                            data = data + '"email":"' + $('#loginform').find('input[name="email"]').val() + '",';
+                            data = data + '"password":"' + $('#loginform').find('input[name="password"]').val() + '"';
                             data = data + "}";
                             $.ajax({
                                 url: url,
@@ -98,12 +99,16 @@
                                 type: "POST",
                                 contentType: "application/json; charset=utf-8",
                             })
-                            .done(function(  ) {
-                                if(data == "success")
+                            .done(function( data ) {
+                                if(data.message == "success")
                                     document.location.href="/";
                             })
                             .fail(function(jqXHR, textStatus){
-                                if (jqXHR.status === 0)
+                                if(jqXHR.status == 422){
+                                    var errorsObj = jQuery.parseJSON(jqXHR.responseText);
+                                    $("#loginresult").text(errorsObj.error);
+                                }
+                                else if (jqXHR.status === 0)
                                 {
                                     alert('Not connect.n Verify Network.');
                                 }
@@ -131,20 +136,21 @@
             <span class="b-close"><span><a href="javascript:window.close();">X</a></span></span>
         </div>
         <div style="width: 315px;">
-            <form id="signupform" autocomplete="on" action="/signup">
+            <form id="signupform" autocomplete="on" action="signup">
                 <label for="useremail">Email</label>
                 <input id="useremail" type="email" name="useremail" autocomplete="off" required>
                 <label for="fname">First Name</label>
                 <input id="fname" type="text" name="fname" maxlength="100" required>
                 <label for="lname">Last Name</label>
                 <input id="lname" type="text" name="lname" maxlength="100" required>
-                <label for="password">Password</label>
-                <input id="password" type="password" name="password" autocomplete="off" required>
-                <label for="confirmpassword">Retype Password</label>
+                <label for="signuppassword">Password</label>
+                <input id="signuppassword" type="password" name="signuppassword" autocomplete="off" required>
+                <label for="confirmpassword">Confirm Password</label>
                 <input id="confirmpassword" type="password" name="confirmpassword" autocomplete="off" required>
                 <br>
                 <input type="submit" value="Submit">
             </form>
+            <span id="resultdata" style="position: relative; width: 300px;"></span>
         </div>
         <script type="text/javascript">
 
@@ -164,9 +170,9 @@
                                 required: true,
                                 minlength: 2,
                                 email: true,
-                                remote: "/signup/checkemail"
+                                remote: "checkemail"
                             },
-                            password: {
+                            signuppassword: {
                                 required: true,
                                 minlength: 8,
                                 maxlength: 50
@@ -175,7 +181,7 @@
                                 required: true,
                                 minlength: 8,
                                 maxlength: 50,
-                                equalTo: "#password"
+                                equalTo: "#signuppassword"
                             }
                         },
                         messages: {
@@ -191,22 +197,27 @@
                                 required: "Please enter a valid email",
                                 minLength: "Your email must be at least {0} characters long",
                                 email:  "Please enter valid email",
-                                remote: jQuery.validator.format("{0} is already in use")
+                                remote: jQuery.validator.format("Email is already in use")
                             },
                             password: {
                                 required: "Password is required",
                                 minLength: "Password should be atleast {0} characters long",
                                 maxLength: "Password cannot be greater than {0} characters long",
+                            },
+                            confirmpassword: {
+                                required:  "Confirm password is required",
+                                equalTo: "Confirm password should be same as Password"
                             }
                         },
                         submitHandler: function() {
                             var form = $("#signupform");
-                            var url = "/signup";
-                            var data = '{';
+                            var url = "signup";
+                            var data = "{";
                             data = data + '"fname":"' + $('#signupform').find('input[name="fname"]').val() + '",';
                             data = data + '"lname":"' + $('#signupform').find('input[name="lname"]').val() + '",';
                             data = data + '"useremail":"' + $('#signupform').find('input[name="useremail"]').val() + '",';
-                            data = data + '"password":"' + $("#password").val() + '"';
+                            data = data + '"password":"' + $('#signupform').find('input[name="signuppassword"]').val() + '",';
+                            data = data + '"confirmpassword":"' + $('#signupform').find('input[name="confirmpassword"]').val() + '"';
                             data = data + "}";
                             $.ajax({
                                 url: url,
@@ -214,12 +225,27 @@
                                 type: "POST",
                                 contentType: "application/json; charset=utf-8",
                             })
-                            .done(function( data ) {
-                                //Set Header here or maybe on Server.
-                                document.location.href="/";
+                            .done(function( result ) {
+                                var finalMessage = "<ul>";
+                                finalMessage = finalMessage + "<li>SignUp Successful. You will receive an email with details</li>";
+                                finalMessage = finalMessage + "<li>" + "You may close this window" + "</li>";
+                                finalMessage = finalMessage + "</ul>";
+                                $("#resultdata").html(finalMessage);
+                                $('#signupform').trigger("reset");
+
                             })
                             .fail(function(jqXHR, textStatus){
-                                if (jqXHR.status === 0)
+                                if (jqXHR.status == 422)
+                                {
+                                    var errorsObj = jQuery.parseJSON(jqXHR.responseText);
+                                    var errorMessage = "<ul>";
+                                    $.each(errorsObj.errors, function(index, value) {
+                                        errorMessage =  errorMessage + "<li>" + value + "</li>";
+                                    });
+                                    errorMessage = errorMessage + "</ul>";
+                                    $("#resultdata").html(errorMessage);
+
+                                }else if (jqXHR.status === 0)
                                 {
                                     alert('Not connect.n Verify Network.');
                                 }

@@ -1,7 +1,7 @@
 package org.psnyc.core.resource.us;
 
 import io.dropwizard.views.View;
-import org.psnyc.core.resource.Subsite;
+import org.psnyc.core.constants.Subsite;
 import org.psnyc.views.us.MainView;
 
 import javax.ws.rs.GET;

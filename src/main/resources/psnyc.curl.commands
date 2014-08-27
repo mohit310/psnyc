@@ -3,3 +3,6 @@ curl -H "Content-Type: application/json" -X POST -d '{"fname":"Mo", "lname" : "K
 curl -H "Content-Type: application/json" -X POST -d '{"fname":"M", "lname" : "K", "useremail" : "mk", "query" : "my" }' http://localhost:8080/contactus/send
 
 curl -H "Content-Type: text/html" -X GET http://localhost:8080/signup/checkemail?useremail=mk%40mk.com
+
+
+curl -u mohit.keswani@gmail.com http://localhost:8080/login

@@ -2,6 +2,8 @@ package org.psnyc;
 
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
+import io.dropwizard.auth.basic.BasicAuthProvider;
+import io.dropwizard.auth.basic.BasicCredentials;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.migrations.MigrationsBundle;
@@ -9,8 +11,14 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 import org.psnyc.configuration.PSNYCConfiguration;
+import org.psnyc.core.authentication.PSNYCAuthenticator;
+import org.psnyc.core.authentication.PSNYCRestrictedToProvider;
+import org.psnyc.core.authentication.User;
+import org.psnyc.core.dao.UserDAO;
 import org.psnyc.core.filter.RegionCookieFilter;
+import org.psnyc.core.resource.EmailCheckResource;
 import org.psnyc.core.resource.GlobalHomeResource;
+import org.psnyc.core.resource.LoginResource;
 import org.psnyc.core.resource.SignUpResource;
 import org.psnyc.core.resource.us.AboutUsResource;
 import org.psnyc.core.resource.us.ContactUsResource;
@@ -52,18 +60,26 @@ public class PSNYCApplication extends Application<PSNYCConfiguration> {
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, psnycConfiguration.getDataSourceFactory(), "mysql");
 
-        environment.jersey().getResourceConfig().getContainerRequestFilters().add(new RegionCookieFilter());
+        //DAO
+        final UserDAO userDAO = jdbi.onDemand(UserDAO.class);
 
+        PSNYCAuthenticator authenticator = new PSNYCAuthenticator(userDAO);
+
+        environment.jersey().register(new PSNYCRestrictedToProvider<User>(authenticator, "PSNYCRealm"));
+
+
+
+        environment.jersey().getResourceConfig().getContainerResponseFilters().add(new RegionCookieFilter());
+        environment.jersey().register(new LoginResource(userDAO));
         environment.jersey().register(new GlobalHomeResource());
         environment.jersey().register(new HomeResource());
         environment.jersey().register(new FieldsResource());
         environment.jersey().register(new AboutUsResource());
         environment.jersey().register(new ContactUsResource());
-
-
-
-        environment.jersey().register(new SignUpResource());
+        environment.jersey().register(new SignUpResource(userDAO));
+        environment.jersey().register(new EmailCheckResource(userDAO));
 
 
     }
+
 }

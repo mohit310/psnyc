@@ -31,6 +31,11 @@ public class Signup {
     @Size(min=8, max=50)
     private String password;
 
+    @JsonProperty("confirmpassword")
+    @NotNull
+    @Size(min=8, max=50)
+    private String confirmPassword;
+
     public String getEmail() {
         return email;
     }
@@ -63,6 +68,14 @@ public class Signup {
         this.password = password;
     }
 
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
     @Override
     public String toString() {
         return "Signup{" +
@@ -70,6 +83,7 @@ public class Signup {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
                 '}';
     }
 }

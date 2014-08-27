@@ -1,4 +1,4 @@
-package org.psnyc.core.resource;
+package org.psnyc.core.constants;
 
 /**
  * Created by mohit on 8/20/14.
