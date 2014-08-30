@@ -6,11 +6,9 @@ package org.psnyc.core.authentication;
 public class PSNYCCredentials {
 
     private Authority[] reguiredAuthorities;
-    private User user;
 
     public PSNYCCredentials(Authority[] reguiredAuthorities, User user) {
         this.reguiredAuthorities = reguiredAuthorities;
-        this.user = user;
     }
 
     public Authority[] getReguiredAuthorities() {
@@ -21,11 +19,4 @@ public class PSNYCCredentials {
         this.reguiredAuthorities = reguiredAuthorities;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

@@ -716,6 +716,21 @@
 
 }
 
+#forgotpresult {
+    color: red;
+
+}
+
+#loginresult{
+    color: red;
+}
+
+#forgotp {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-size: 12px;
+}
+
 
 
 

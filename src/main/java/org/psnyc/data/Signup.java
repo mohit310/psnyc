@@ -3,7 +3,9 @@ package org.psnyc.data;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Email;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -35,6 +37,11 @@ public class Signup {
     @NotNull
     @Size(min=8, max=50)
     private String confirmPassword;
+
+    @JsonProperty("phone")
+    @NotNull
+    @Pattern(regexp="(^$|[0-9]{10})")
+    private String phone;
 
     public String getEmail() {
         return email;
@@ -76,6 +83,14 @@ public class Signup {
         this.confirmPassword = confirmPassword;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "Signup{" +
@@ -84,6 +99,7 @@ public class Signup {
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
                 ", confirmPassword='" + confirmPassword + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

@@ -5,6 +5,6 @@ package org.psnyc.core.authentication;
  */
 public enum Authority {
 
-    ROLE_ADMIN,
-    ROLE_CLIENT
+    ADMIN,
+    USER
 }

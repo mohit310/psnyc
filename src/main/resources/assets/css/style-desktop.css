@@ -383,7 +383,7 @@
 	min-height: 250px;
 }
 
-#popup{
+#logindiv{
     background-color: #fff;
     border-style: solid;
     border-size: 3px;
@@ -396,7 +396,24 @@
     padding: 25px;
 }
 
-#popup {
+#logindiv {
+	min-height: 250px;
+}
+
+#forgotpdiv{
+    background-color: #fff;
+    border-style: solid;
+    border-size: 3px;
+    border-color: black;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 25px 5px #999;
+    color:#111;
+    display: none;
+    min-width: 325px;
+    padding: 25px;
+}
+
+#forgotpdiv {
 	min-height: 250px;
 }
 

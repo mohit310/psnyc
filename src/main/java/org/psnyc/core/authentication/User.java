@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
  */
 public class User {
 
+    private long id;
 
     @JsonProperty("email")
     @NotNull
@@ -17,6 +18,8 @@ public class User {
     @JsonProperty("password")
     @NotNull
     private String password;
+
+    private Authority role;
 
     public User() {
     }
@@ -35,5 +38,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Authority getRole() {
+        return role;
+    }
+
+    public void setRole(Authority role) {
+        this.role = role;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

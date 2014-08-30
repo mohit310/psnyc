@@ -76,7 +76,7 @@ public class PSNYCApplication extends Application<PSNYCConfiguration> {
         environment.jersey().register(new FieldsResource());
         environment.jersey().register(new AboutUsResource());
         environment.jersey().register(new ContactUsResource());
-        environment.jersey().register(new SignUpResource(userDAO));
+        environment.jersey().register(new SignUpResource(jdbi, userDAO));
         environment.jersey().register(new EmailCheckResource(userDAO));
 
 

@@ -30,7 +30,7 @@ public class EmailCheckResource {
         LOGGER.debug(email);
         if (StringUtils.isEmpty(email))
             return Response.status(200).type(MediaType.APPLICATION_JSON).entity("false").build();
-        int emailCount = userDAO.findNameById(email);
+        int emailCount = userDAO.getEmail(email);
         if (emailCount > 0) return Response.status(200).type(MediaType.APPLICATION_JSON).entity("false").build();
         return Response.status(200).type(MediaType.APPLICATION_JSON).entity("true").build();
     }

@@ -20,14 +20,59 @@
             <column name="email" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="phone" type="varchar(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 
-    <changeSet id="2" author="mohit">
-        <insert tableName="User">
-            <column name="firstname">Mohit</column>
-            <column name="lastname">Keswani</column>
-            <column name="email">mohit.keswani@gmail.com</column>
-        </insert>
+    <changeSet id="2" author="mkeswani">
+        <createTable tableName="Role">
+            <column name="name" type="varchar(25)">
+                <constraints primaryKey="true" nullable="false"></constraints>
+            </column>
+            <column name="description" type="varchar(50)">
+                <constraints nullable="true"></constraints>
+            </column>
+        </createTable>
     </changeSet>
+    <changeSet id="3" author="mk">
+        <createTable tableName="UserRole">
+            <column name="id" type="bigint">
+                <constraints nullable="false"></constraints>
+            </column>
+
+            <column name="role" type="varchar(25)">
+                <constraints nullable="false"></constraints>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="id, role"
+                       constraintName="pk_userrole"
+                       tableName="UserRole"/>
+        <addForeignKeyConstraint baseColumnNames="id"
+                                 baseTableName="UserRole"
+                                 constraintName="fk_userrole_user"
+                                 referencedColumnNames="id"
+                                 referencedTableName="User"/>
+        <addForeignKeyConstraint baseColumnNames="role"
+                                 baseTableName="UserRole"
+                                 constraintName="fk_userrole_role"
+                                 referencedColumnNames="name"
+                                 referencedTableName="Role"/>
+    </changeSet>
+    <changeSet id="4" author="mohit">
+        <insert tableName="Role">
+            <column name="name">CLIENT</column>
+            <column name="description">Client Role</column>
+        </insert>
+        <insert tableName="Role">
+            <column name="name">ADMIN</column>
+            <column name="description">Admin Role</column>
+        </insert>
+
+    </changeSet>
+
 </databaseChangeLog>
