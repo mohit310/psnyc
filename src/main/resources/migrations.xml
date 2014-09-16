@@ -75,4 +75,26 @@
 
     </changeSet>
 
+
+    <changeSet id="5" author="mohit">
+        <createTable tableName="Field">
+            <column name="country" type="char(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="country, state, city, name"
+                       constraintName="pk_field"
+                       tableName="Field"/>
+    </changeSet>
+
+
 </databaseChangeLog>

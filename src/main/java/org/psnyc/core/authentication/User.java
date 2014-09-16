@@ -9,7 +9,9 @@ import javax.validation.constraints.NotNull;
  */
 public class User {
 
-    private long id;
+    @JsonProperty
+    @NotNull
+    long id;
 
     @JsonProperty("email")
     @NotNull
@@ -22,6 +24,13 @@ public class User {
     private Authority role;
 
     public User() {
+    }
+
+    public User(long id, String emailId, String password, Authority role) {
+        this.id = id;
+        this.emailId = emailId;
+        this.password = password;
+        this.role = role;
     }
 
     public String getEmailId() {

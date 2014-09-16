@@ -38,7 +38,6 @@
                 <li
                 <#if navigationData.menu = "Login">class="current"</#if>
                 ><a href="#" id="login">Login</a></li>
-
             </ul>
         </nav>
     </header>
@@ -185,8 +184,11 @@
                     contentType: "application/json; charset=utf-8"
                 })
                 .done(function( data ) {
-                    if(data.message == "success")
+                    if(data.message == "success"){
+                        sessionStorage.setItem("role", data.role);
+                        sessionStorage.setItem("id", data.id);
                         document.location.href="/";
+                    }
                 })
                 .fail(function(jqXHR, textStatus){
                     if(jqXHR.status == 422){

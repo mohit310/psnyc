@@ -1,7 +1,5 @@
 package org.psnyc.core.resource;
 
-import com.google.common.base.Preconditions;
-import org.apache.commons.lang.StringUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import org.psnyc.core.authentication.Authority;
 import org.psnyc.core.authentication.User;
@@ -9,14 +7,21 @@ import org.psnyc.core.dao.UserDAO;
 import org.psnyc.data.ForgotEmail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.misc.BASE64Encoder;
 
 import javax.naming.AuthenticationException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
+import java.util.Base64;
 
 /**
  * Created by mohit on 8/26/14.
@@ -34,24 +39,36 @@ public class LoginResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response login(@Valid User user) throws AuthenticationException {
+    public Response login(@Valid User user, @Context HttpServletRequest request) throws AuthenticationException {
         User dbUser = userDAO.getUser(user.getEmailId());
-        String hashPasswd = dbUser.getPassword();
-        if (hashPasswd != null && BCrypt.checkpw(user.getPassword(), hashPasswd)) {
-            Authority role = dbUser.getRole();
-            String secretHeader = user.getEmailId() + ":" + role.toString();
-            String secretHeaderMD5 = null;
-            try {
-                byte[] bytesOfMessage = secretHeader.getBytes("UTF-8");
-                MessageDigest digest = MessageDigest.getInstance("MD5");
-                byte[] md5Hash = digest.digest(bytesOfMessage);
-                secretHeader = new String(md5Hash);
-            } catch (Exception e) {
-                return Response.status(500).entity("{ \"error\" : \"Error in hashing\" }").build();
+        if (dbUser != null) {
+            String hashPasswd = dbUser.getPassword();
+            if (hashPasswd != null && BCrypt.checkpw(user.getPassword(), hashPasswd)) {
+                Authority role = dbUser.getRole();
+                //NewCookie roleCookie = new NewCookie("role",role.toString());
+                //NewCookie userIdCookie = new NewCookie("user_id",String.valueOf(dbUser.getId()));
+                //String token = createSessionToken(dbUser.getEmailId(), String.valueOf(dbUser.getId()), role.toString());
+                //NewCookie sessionTokenCokie = new NewCookie("sessiontoken",token);
+                //return Response.status(200).cookie(sessionTokenCokie).cookie(roleCookie).cookie(userIdCookie).entity("{ \"message\": \"success\", \"role\": \"" + role.toString() + "\", \"id\": \"" + dbUser.getId() + "\" }").build();
+                return Response.status(200).entity("{ \"message\": \"success\", \"role\": \"" + role.toString() + "\", \"id\": \"" + dbUser.getId() + "\" }").build();
             }
-            return Response.status(200).entity("{ \"message\": \"success\" }").header("psnyc-auth", secretHeader).header("psnyc-role", role.toString()).build();
         }
         return Response.status(422).entity("{ \"error\" : \"Email or Password incorrect\" }").build();
+    }
+
+    private String createSessionToken(String emailId, String id, String role) {
+        String sessionToken = "";
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            String text = emailId + ":" + id + ":" + role;
+            md.update(text.getBytes("UTF-8")); // Change this to "UTF-16" if needed
+            byte[] digest = md.digest();
+            byte[] token64 = Base64.getEncoder().encode(digest);
+            sessionToken = new String(token64);
+        }catch(Exception e){
+            LOGGER.error("Error in getting creating sessionToken", e);
+        }
+        return sessionToken;
     }
 
 
@@ -60,7 +77,7 @@ public class LoginResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/forgotpassword")
     public Response forgotPassword(@Valid ForgotEmail forgotEmail) throws AuthenticationException {
-        if(1 == userDAO.getEmail(forgotEmail.getEmail()))
+        if (1 == userDAO.getEmail(forgotEmail.getEmail()))
             return Response.status(200).entity("{ \"success\": \"success\" }").build();
         return Response.status(422).entity("{ \"error\" : \"Email does not exist\" }").build();
     }

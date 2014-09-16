@@ -1,12 +1,15 @@
 package org.psnyc.core.resource.us;
 
 import io.dropwizard.views.View;
+import org.psnyc.core.authentication.User;
 import org.psnyc.core.constants.Subsite;
 import org.psnyc.views.us.MainView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -20,8 +23,9 @@ public class HomeResource {
     }
 
     @GET
-    public View displayHome() {
-        return new MainView(Subsite.US,"Home","home.ftl");
+    public View displayHome(@Context HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("user");
+        return new MainView(Subsite.US, "Home", "home.ftl");
     }
 
 }

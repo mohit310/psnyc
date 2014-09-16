@@ -2,8 +2,6 @@ package org.psnyc;
 
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
-import io.dropwizard.auth.basic.BasicAuthProvider;
-import io.dropwizard.auth.basic.BasicCredentials;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.migrations.MigrationsBundle;
@@ -11,9 +9,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 import org.psnyc.configuration.PSNYCConfiguration;
-import org.psnyc.core.authentication.PSNYCAuthenticator;
-import org.psnyc.core.authentication.PSNYCRestrictedToProvider;
-import org.psnyc.core.authentication.User;
+import org.psnyc.core.authentication.LoginUserCheckProvider;
 import org.psnyc.core.dao.UserDAO;
 import org.psnyc.core.filter.RegionCookieFilter;
 import org.psnyc.core.resource.EmailCheckResource;
@@ -63,11 +59,7 @@ public class PSNYCApplication extends Application<PSNYCConfiguration> {
         //DAO
         final UserDAO userDAO = jdbi.onDemand(UserDAO.class);
 
-        PSNYCAuthenticator authenticator = new PSNYCAuthenticator(userDAO);
-
-        environment.jersey().register(new PSNYCRestrictedToProvider<User>(authenticator, "PSNYCRealm"));
-
-
+        environment.jersey().getResourceConfig().getProviderClasses().add(LoginUserCheckProvider.class);
 
         environment.jersey().getResourceConfig().getContainerResponseFilters().add(new RegionCookieFilter());
         environment.jersey().register(new LoginResource(userDAO));
