@@ -108,6 +108,13 @@
 
     $(document).ready(function() {
 
+        var userid = $.jStorage.get("id");
+        var emailIdFromStorage = $.jStorage.get("emailId");
+        if (undefined != userid && null != userid && undefined != emailIdFromStorage && null != emailIdFromStorage){
+            $('#login').text("Logout");
+            $('#login').attr("href","/logout");
+        }
+
         $("#login").click(function() {
             $("#loginresult").text();
             $('#logindiv').bPopup({
@@ -185,9 +192,13 @@
                 })
                 .done(function( data ) {
                     if(data.message == "success"){
-                        sessionStorage.setItem("role", data.role);
-                        sessionStorage.setItem("id", data.id);
-                        document.location.href="/";
+                        $.jStorage.set("emailId", data.emailId);
+                        $.jStorage.set("role", data.role);
+                        $.jStorage.set("id", data.id);
+                        $('#loginform').trigger("reset");
+                        $('#login').text("Logout");
+                        $('#login').attr("href","/logout");
+                        $('#logindiv').bPopup().close();
                     }
                 })
                 .fail(function(jqXHR, textStatus){

@@ -15,10 +15,10 @@ mysqlDatabase:
   driverClass: com.mysql.jdbc.Driver
 
   # the username
-  user: mk
+  user: psnyc
 
   # the password
-  password: mohitk78
+  password: psnyc
 
   # the JDBC URL
   url: jdbc:mysql://localhost/psnyc

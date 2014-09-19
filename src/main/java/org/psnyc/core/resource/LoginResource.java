@@ -45,12 +45,7 @@ public class LoginResource {
             String hashPasswd = dbUser.getPassword();
             if (hashPasswd != null && BCrypt.checkpw(user.getPassword(), hashPasswd)) {
                 Authority role = dbUser.getRole();
-                //NewCookie roleCookie = new NewCookie("role",role.toString());
-                //NewCookie userIdCookie = new NewCookie("user_id",String.valueOf(dbUser.getId()));
-                //String token = createSessionToken(dbUser.getEmailId(), String.valueOf(dbUser.getId()), role.toString());
-                //NewCookie sessionTokenCokie = new NewCookie("sessiontoken",token);
-                //return Response.status(200).cookie(sessionTokenCokie).cookie(roleCookie).cookie(userIdCookie).entity("{ \"message\": \"success\", \"role\": \"" + role.toString() + "\", \"id\": \"" + dbUser.getId() + "\" }").build();
-                return Response.status(200).entity("{ \"message\": \"success\", \"role\": \"" + role.toString() + "\", \"id\": \"" + dbUser.getId() + "\" }").build();
+                return Response.status(200).entity("{ \"message\": \"success\", \"emailId\": \"" + dbUser.getEmailId() + "\", \"role\": \"" + role.toString() + "\", \"id\": \"" + dbUser.getId() + "\" }").build();
             }
         }
         return Response.status(422).entity("{ \"error\" : \"Email or Password incorrect\" }").build();

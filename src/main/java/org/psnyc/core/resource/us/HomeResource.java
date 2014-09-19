@@ -23,8 +23,7 @@ public class HomeResource {
     }
 
     @GET
-    public View displayHome(@Context HttpServletRequest request) {
-        User user = (User) request.getSession().getAttribute("user");
+    public View displayHome() {
         return new MainView(Subsite.US, "Home", "home.ftl");
     }
 

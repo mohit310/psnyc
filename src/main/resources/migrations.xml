@@ -87,6 +87,9 @@
             <column name="city" type="varchar(100)">
                 <constraints nullable="false"/>
             </column>
+            <column name="borough" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
             <column name="name" type="varchar(100)">
                 <constraints nullable="false"/>
             </column>
@@ -94,6 +97,30 @@
         <addPrimaryKey columnNames="country, state, city, name"
                        constraintName="pk_field"
                        tableName="Field"/>
+    </changeSet>
+
+    <changeSet id="6" author="mohit">
+        <insert tableName="Field">
+            <column name="country">US</column>
+            <column name="state">NY</column>
+            <column name="city">New York</column>
+            <column name="borough">Manhattan</column>
+            <column name="name">Chelsea Park</column>
+        </insert>
+        <insert tableName="Field">
+            <column name="country">US</column>
+            <column name="state">NY</column>
+            <column name="city">New York</column>
+            <column name="borough">Manhattan</column>
+            <column name="name">Nike Field</column>
+        </insert>
+        <insert tableName="Field">
+            <column name="country">US</column>
+            <column name="state">NY</column>
+            <column name="city">New York</column>
+            <column name="borough">Brooklyn</column>
+            <column name="name">Brooklyn Pier 5</column>
+        </insert>
     </changeSet>
 
 
