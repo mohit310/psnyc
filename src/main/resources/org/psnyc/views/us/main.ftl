@@ -21,7 +21,7 @@
     <script src="js/additional-methods.min.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/jquery.bpopup.min.js"></script>
-    <script src="js/jstorage.js"></script>
+    <script src="js/jquery.storage.js"></script>
     <noscript>
         <link rel="stylesheet" href="css/skel.css"/>
         <link rel="stylesheet" href="css/style.css"/>

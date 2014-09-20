@@ -45,7 +45,7 @@ public class LoginResource {
             String hashPasswd = dbUser.getPassword();
             if (hashPasswd != null && BCrypt.checkpw(user.getPassword(), hashPasswd)) {
                 Authority role = dbUser.getRole();
-                return Response.status(200).entity("{ \"message\": \"success\", \"emailId\": \"" + dbUser.getEmailId() + "\", \"role\": \"" + role.toString() + "\", \"id\": \"" + dbUser.getId() + "\" }").build();
+                return Response.status(200).entity("{ \"message\": \"success\", \"emailId\": \"" + dbUser.getEmailId() + "\", \"firstname\": \"" + dbUser.getFirstName() + "\", \"lastname\": \"" + dbUser.getLastName() + "\", \"role\": \"" + role.toString() + "\", \"id\": \"" + dbUser.getId() + "\" }").build();
             }
         }
         return Response.status(422).entity("{ \"error\" : \"Email or Password incorrect\" }").build();

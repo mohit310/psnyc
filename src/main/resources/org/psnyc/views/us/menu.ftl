@@ -1,6 +1,11 @@
 <#-- @ftlvariable menu="" type="org.psnyc.views.us.MainView" -->
 <!-- Header -->
 <div id="header-wrapper">
+
+    <div id="welcome" style="display: none;" class="container">
+        <span class="profile">Welcome: <a id="profile" href="/"></a></span>
+    </div>
+
     <header id="header" class="container">
 
         <!-- Logo -->
@@ -40,6 +45,7 @@
                 ><a href="#" id="login">Login</a></li>
             </ul>
         </nav>
+
     </header>
 </div>
 
@@ -108,11 +114,16 @@
 
     $(document).ready(function() {
 
-        var userid = $.jStorage.get("id");
-        var emailIdFromStorage = $.jStorage.get("emailId");
+        var userid = $.sessionStorage("id");
+        var emailIdFromStorage = $.sessionStorage("emailId");
+        var firstname = $.sessionStorage("firstname");
+        var lastname = $.sessionStorage("lastname");
         if (undefined != userid && null != userid && undefined != emailIdFromStorage && null != emailIdFromStorage){
             $('#login').text("Logout");
             $('#login').attr("href","/logout");
+            $('#welcome').show();
+            $('#profile').attr('href',userid + '/profile');
+            $('#profile').text(firstname + " " + lastname);
         }
 
         $("#login").click(function() {
@@ -192,9 +203,12 @@
                 })
                 .done(function( data ) {
                     if(data.message == "success"){
-                        $.jStorage.set("emailId", data.emailId);
-                        $.jStorage.set("role", data.role);
-                        $.jStorage.set("id", data.id);
+                        console.log(data);
+                        $.sessionStorage("emailId", data.emailId);
+                        $.sessionStorage("role", data.role);
+                        $.sessionStorage("id", data.id);
+                        $.sessionStorage("firstname", data.firstname);
+                        $.sessionStorage("lastname", data.lastname);
                         $('#loginform').trigger("reset");
                         $('#login').text("Logout");
                         $('#login').attr("href","/logout");

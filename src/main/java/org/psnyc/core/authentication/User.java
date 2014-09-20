@@ -3,6 +3,7 @@ package org.psnyc.core.authentication;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by mohit on 8/26/14.
@@ -20,6 +21,10 @@ public class User {
     @JsonProperty("password")
     @NotNull
     private String password;
+
+    private String firstName;
+
+    private String lastName;
 
     private Authority role;
 
@@ -63,5 +68,21 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
