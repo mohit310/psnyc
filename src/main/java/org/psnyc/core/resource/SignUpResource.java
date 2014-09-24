@@ -36,13 +36,13 @@ public class SignUpResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response signUp(@Valid Signup signup) {
+    public Response signUp(@Valid final Signup signup) {
         LOGGER.debug(signup.toString());
         if (!(signup.getPassword().equals(signup.getConfirmPassword())))
             return Response.status(422).type(MediaType.APPLICATION_JSON).entity("{ \"errors\" : [\"Passwords dont match.\"] }").build();
         if(userDAO.getEmail(signup.getEmail()) > 0 )
             return Response.status(422).type(MediaType.APPLICATION_JSON).entity("{ \"errors\" : [\"Email already in use.\"] }").build();
-        String hashPwd = BCrypt.hashpw(signup.getPassword(), BCrypt.gensalt());
+        final String hashPwd = BCrypt.hashpw(signup.getPassword(), BCrypt.gensalt());
         database.inTransaction(
                 new TransactionCallback<Boolean>() {
                     public Boolean inTransaction(Handle h, TransactionStatus status) {

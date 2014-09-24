@@ -60,7 +60,7 @@ public class LoginResource {
             byte[] digest = md.digest();
             byte[] token64 = Base64.getEncoder().encode(digest);
             sessionToken = new String(token64);
-        }catch(Exception e){
+        } catch (Exception e) {
             LOGGER.error("Error in getting creating sessionToken", e);
         }
         return sessionToken;
