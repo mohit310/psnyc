@@ -24,7 +24,7 @@ public class HomeResource {
 
     @GET
     public View displayHome() {
-        return new MainView(Subsite.US, "Home", "home.ftl");
+        return new MainView(Subsite.US, "Home", "home.ftl", null, null);
     }
 
 }

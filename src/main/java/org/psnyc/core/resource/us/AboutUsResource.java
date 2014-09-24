@@ -21,6 +21,6 @@ public class AboutUsResource {
 
     @GET
     public View displayAboutUs() {
-        return new MainView(Subsite.US, "AboutUs","aboutus.ftl");
+        return new MainView(Subsite.US, "AboutUs", "aboutus.ftl", null, null);
     }
 }

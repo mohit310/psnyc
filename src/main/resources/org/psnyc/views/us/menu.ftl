@@ -23,10 +23,6 @@
                 <#if navigationData.menu = "Fields">class="current"</#if>
                 >
                 <a href="/fields">Fields</a>
-                <ul>
-                    <li><a href="/fields?city=manhattan">Manhattan</a></li>
-                    <li><a href="/fields?city=brooklyn">Brooklyn</a></li>
-                </ul>
                 </li>
                 <li
                 <#if navigationData.menu = "Schedule">class="current"</#if>

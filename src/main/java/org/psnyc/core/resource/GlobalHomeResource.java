@@ -34,7 +34,7 @@ public class GlobalHomeResource {
             if (cookie.getName().equals("region")) {
                 String regionName = cookie.getValue();
                 if (StringUtils.isNotEmpty(regionName)) {
-                    return new MainView(regionName, "Home", "home.ftl");
+                    return new MainView(regionName, "Home", "home.ftl",null, null);
                 }
             }
         }

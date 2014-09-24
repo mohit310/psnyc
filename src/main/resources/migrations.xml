@@ -94,7 +94,7 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey columnNames="country, state, city, name"
+        <addPrimaryKey columnNames="country, state, city, borough, name"
                        constraintName="pk_field"
                        tableName="Field"/>
     </changeSet>

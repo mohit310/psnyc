@@ -26,7 +26,7 @@ public class ContactUsResource {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public View displayContactUs() {
-        return new MainView(Subsite.US,"ContactUs","contactus.ftl");
+        return new MainView(Subsite.US,"ContactUs","contactus.ftl",null, null);
     }
 
     @POST

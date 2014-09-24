@@ -10,6 +10,7 @@ import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 import org.psnyc.configuration.PSNYCConfiguration;
 import org.psnyc.core.authentication.LoginUserCheckProvider;
+import org.psnyc.core.dao.FieldDAO;
 import org.psnyc.core.dao.UserDAO;
 import org.psnyc.core.filter.RegionCookieFilter;
 import org.psnyc.core.resource.EmailCheckResource;
@@ -58,6 +59,7 @@ public class PSNYCApplication extends Application<PSNYCConfiguration> {
 
         //DAO
         final UserDAO userDAO = jdbi.onDemand(UserDAO.class);
+        final FieldDAO fieldDAO = jdbi.onDemand(FieldDAO.class);
 
         environment.jersey().getResourceConfig().getProviderClasses().add(LoginUserCheckProvider.class);
 
@@ -65,7 +67,7 @@ public class PSNYCApplication extends Application<PSNYCConfiguration> {
         environment.jersey().register(new LoginResource(userDAO));
         environment.jersey().register(new GlobalHomeResource());
         environment.jersey().register(new HomeResource());
-        environment.jersey().register(new FieldsResource());
+        environment.jersey().register(new FieldsResource(fieldDAO));
         environment.jersey().register(new AboutUsResource());
         environment.jersey().register(new ContactUsResource());
         environment.jersey().register(new SignUpResource(jdbi, userDAO));
